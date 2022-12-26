@@ -1,10 +1,9 @@
-name: Ilona Maskova # ваше имя
-job: QA Engineer
-level: junior
-email: ilona@hexlet.io
+name: Sasha Fadeeva # ваше имя
+job: QA 
+level: Senior
+email: fadeeva.alexandra@gmail.com
 description: |
-  Это текст-описание в свободной форме. Здесь можно рассказать пару интересных фактов про себя
-  Текст может быть написан в несколько абзацев
+  Тест
 skills: # список навыков в виде списка, напишите что-то свое
   - функциональное тестирование
   - написание багрепортов
