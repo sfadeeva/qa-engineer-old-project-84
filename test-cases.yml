@@ -1,31 +1,169 @@
+---
 - summary: |
-    Краткое описание тест кейса. Пример: Проверка входа пользователя с существующими логином и паролем
+    Проверка поиска товаров по ключевому слову
   requirement: |
-    Тестируемое требование. Например: При верном вводе логине и пароля пользователь должен войти в систему
+    При выборе любого производителя, сработает фильтр, который будет искать товары по ключевому слову.
   prerequisites: |
-    Это условия, которые необходимы для проведения тест кейса. Они должны быть выполнены еще до запуска тест кейса.
-    Например: открыта страница логина
+    открыта страница https://hexlet-products-store.vercel.app/
   test-data: |
-    Тестовые данные
-    Логин = ilona Пароль = password
-  steps:
-    - Вводим логин
-    - Вводим пароль
-    - Нажимаем кнопку "Войти"
-  expected-result: |
-    Пользователь должен попасть на главную страницу
+    Apple, Samsung, OPPO, Huawei, APPle, Microsoft Surface, Infinix, HP Pavilion, Impression of Acqua Di Gio, Royal_Mirage,
+  steps: 
+    - В поиске ввести выбранные брэнды
+  expected-result: >
+    Должен отобразится список товаров : Apple, Samsung, OPPO, Huawei, APPle, Microsoft Surface, Infinix, HP Pavilion, Impression of Acqua Di Gio, Royal_Mirage,
+   
 
 - summary: |
-    Проверка входа пользователя с несуществующими логином и паролем
+    Проверка поиска товаров по производителю.
   requirement: |
-    При неправильном логине или пароле пользователь должен получить сообщение об ошибке
-  prerequisites:
-    Открыта страница логина
+    При выборе любого производителя, сработает фильтр, который будет искать товары по производителю.
+  prerequisites: |
+    Открыта страница https://hexlet-products-store.vercel.app/
   test-data: |
-    Логин = Логин = hexlet Пароль = badpass
-  steps:
-    - Вводим логин
-    - Вводим пароль
-    - Нажимаем кнопку "Войти"
+    В поиске ввести брэнды: Apple, Samsung, OPPO, Huawei, APPle, Microsoft Surface, Infinix, HP Pavilion, Impression of Acqua Di Gio, Royal_Mirage,  
+  steps: 
+    - В поиске ввести выбранные брэнды
   expected-result: |
-    Пользователь должен попасть на главную страницу
+    Должен отобразится весь список товаров: Apple, Samsung, OPPO, Huawei, APPle, Microsoft Surface, Infinix, HP Pavilion, Impression of Acqua Di Gio, Royal_Mirage
+    
+
+- summary: |
+    Проверка поиска товаров по цене
+  requirement: |
+    При выборе параметров сработает фильтр, который будет искать товары по цене
+  prerequisites: |
+    Открыта страница https://hexlet-products-store.vercel.app/
+  test-data: 
+    от 1 до 20, от 20 до 120, от 120 до 1000
+  steps:
+    - Ввести в поле от 0 до 20,
+    - Ввести в поле от 20 до 120,
+    - Ввести в поле от 120 до 1000.
+  expected-result: |
+   Должен отобразится список товаров стоимостью от 0 до 20, от 20 до 120, от 120 до 1000,
+   
+
+
+
+- summary: |
+    Проверка возможности просматривать подробную информацию о товаре
+  requirement: |
+    Пользователь должен увидеть фото, описание товара.
+  prerequisites: |
+    Открыта страница https://hexlet-products-store.vercel.app/
+  test-data: 
+    - https://hexlet-products-store.vercel.app/products/1
+  steps:
+    - выбрать из списка товаров iPhone 9
+    - кликнуть на фотографии расположенные ниже основного фото товара
+  expected-result: |
+    - Отобразится фото и описание товара
+   
+  
+- summary: |
+    Проверка добавление товара в корзину
+  requirement: |
+    Пользователь должен иметь возможность добавлять товары в корзину, удалять и просматривать содержимое корзины.
+  prerequisites: |
+    Открыта страница https://hexlet-products-store.vercel.app/    
+  test-data: |
+    - https://hexlet-products-store.vercel.app/products/1
+  steps:
+    - выбрать из списка товаров "iPhone 9", 
+    - нажать кнопку "В корзину"
+    - в шапке меню нажать кнопку "Корзина"
+    - открылось меню Корзины 
+    - нажать кнопку "Удалить" или "Отчистить корзину"
+  expected-result: |
+   Должен отобразится и удалён список добавленных товаров. 
+
+
+
+- summary: |
+    Оформление заказа с переходом на страницу оплаты.
+  requirement: |
+    При нажатии кнопки "Оформить заказ", клиент переходит на страницу оплаты
+  prerequisites: |
+    Открыта страница https://hexlet-products-store.vercel.app/
+  test-data: |
+    Выбрать товар "iPhone 9"
+  steps:
+    - Нажать "В корзину"
+    - Перейти в корзину
+    - Нажимаем кнопку "Оформить заказ"
+  expected-result: |
+    Должен отобразится модуль "Заказ успешно оформлен"
+
+
+- summary: |
+    Проверка смены языков
+  requirement: |
+    Пользователь должен иметь возможность выбора языка
+  prerequisites: |
+    Открыта страница https://hexlet-products-store.vercel.app/  # По умолчанию английский язык
+  test-data: | 
+    English or Russian
+  steps:
+    - Нажать в шапке меню Accordeon "Language"
+    - Выбрать "Russian"     
+  expected-result: |
+      Должен отобразится выбора языка English or Russian
+
+ 
+
+- summary: |
+    Сайт должен иметь мобильную версию
+  requirement: |
+    Пользователь должен использовать мобильную версию
+  prerequisites: |
+    Смартфон Samsung A52, версия Android 13, Chrome 108.0.5359.128     
+  test-data: | 
+    Открыта страница https://hexlet-products-store.vercel.app/
+  steps:
+    - выбрать из списка товаров "Samsung Galaxy Book" и добавить в корзину.
+    - перейти в корзину / выйти
+    - напечатать "iPhone 9" в разделе "Найти" 
+    - отобразился iPhone 9
+    - проверка корректного отображения информации
+    - все окна расположенны симметрично
+    - время отклика
+  expected-result: |
+     Мобильное приложение работает.
+
+
+
+- summary: |
+    Проверка работоспособности на разных браузерах
+  requirement: |
+    Сайт должен быть протестирован на совместимость с последними версиями браузеров.
+  prerequisites: |
+    Открыть страницу https://hexlet-products-store.vercel.app/ с помощью Google Chrome, Microsoft Edge, Opera
+  test-data: >
+    Google Chrome Версия 108.0.5359.125 (64 бит),  Microsoft Edge Версия 108.0.1462.76 (64-разрядная версия), Opera Версия: 94.0.4606.54 (64-bit)
+    windows 10 (64)
+  steps:
+    - выбрать из списка товаров "Samsung Galaxy Book" и добавить в корзину.
+    - перейти в корзину / выйти
+    - напечатать "iPhone 9" в разделе "Найти" 
+    - отобразился iPhone 9
+    - проверка корректного отображения информации
+    - все окна расположены симметрично
+    - время отклика
+  expected-result: |
+     Сайт совместим с последними версиями браузеров.
+
+
+
+- summary: |
+    Проверка трафика 
+  requirement: |
+    Сайт должен быть способен обрабатывать большое количество трафика
+  prerequisites: |
+    apache-jmeter-5.5
+  test-data: | 
+    https://hexlet-products-store.vercel.app/
+  steps:
+   - Ввести http://hexlet-products-store.vercel.app/ в "http request" (ссылка screen2) 
+   - найти результат в "View results in Table"  (ссылка screen3) 
+  expected-result: |
+   Сайт обрабатывает большое количество трафика
