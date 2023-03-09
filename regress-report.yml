@@ -10,7 +10,7 @@ test-cases:
     
   - summary: |
      Возможность фильтровать товары по цене.
-     status: pass
+    status: pass
      
   - summary: |
      Возможность фильтровать товары по цвету.
