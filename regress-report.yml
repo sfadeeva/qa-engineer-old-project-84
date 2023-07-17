@@ -32,4 +32,190 @@ test-cases:
     Проверка очистки корзины после оформления заказа
   status: fail
   
-bugreports: []
+---
+test-cases:
+- summary: |
+    Возможность искать товары по ключевому слову
+  status: pass
+
+- summary: |
+    Возможность искать товары по категории
+  status: pass
+
+- summary: |
+    Возможность фильтровать товары
+  status: pass
+
+- summary: |
+    Возможность искать товары по категории 2
+  status: fail
+  
+- summary: |
+    Возможность просматривать товары
+  status: pass
+
+- summary: |
+    Имеется кнопка с подробным описанием товара
+  status: fail
+
+- summary: |
+    Возможность добавлять товары в корзину и просматривать содержимое корзины
+  status: pass
+
+- summary: >
+    Возможность редактировать корзину - увеличивать количество выбранных товаров
+  status: pass
+
+- summary: |
+    Удаление товаров из корзины
+  status: pass
+
+- summary: |
+    Оформление заказа
+  status: pass
+
+- summary: |
+    Данные заказа отправляются на сервер
+  status: fail
+
+- summary: |
+    Расчет стоимости добавленных товаров
+  status: pass
+
+- summary: |
+    Корректная работа фильтра В наличии
+  status: fail
+
+- summary: |
+    Корректная работа фильтра В наличии 2
+  status: fail
+
+- summary: |
+    Корректная работа фильтра Цена
+  status: fail
+
+- summary: |
+    Корректная работа фильтра Цена 2
+  status: fail
+
+- summary: |
+    Корректная работа фильтра Цена 3
+  status: fail
+
+- summary: |
+    Корректная работа фильтра Цена 4
+  status: pass
+
+- summary: |
+    Корректная работа фильтра Цена 5
+  status: fail
+
+- summary: |
+    Сайт имеет мобильную версию
+  status: fail
+
+- summary: |
+    Веб-сайт оптимизирован для скорости работы
+  status: pass
+
+- summary: |
+    После оформления заказа происходит переход на страницу оплаты товара
+  status: fail
+
+- summary: |
+    Тест на совместимость с Microsoft Edge
+  status: pass
+
+- summary: |
+    Тест на совместимость с FireFox
+    status: pass
+
+- summary: |
+    Тест на совместимость с Chrome
+  status: pass
+
+- summary: |
+    Тест на совместимость с Opera
+  status: pass
+
+- summary: |
+    Тест на совместимость с Safari
+  status: fail
+
+- summary: |
+    Описание товара на языке версии сайта
+  status: fail
+
+- summary: |
+    Имеется подробное описание для каждого заказа
+  status: pass
+
+bugreports:
+- summary: |
+     Поехала верстка
+  environment: |
+      Google Chrome 114.0.5735.199 (Официальная сборка) (64 бит)
+      Windows 10
+  steps-to-reproduce: >
+      1. Открываем страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/ 
+      2. Слева на панели фильтра ставим галочку напротив Samsung 
+      3. Слева во вкладке категория выбираем smartphones
+  expected-result: |
+      открываются товары Samsung верстка сайта сохраняется
+  actual-result: |
+      Поехала верстка сайта, кнопка в корзину уехала за рамки
+
+- summary: |
+      Сайт не корректно выдает товары
+  environment: |
+      Google Chrome 114.0.5735.199 (Официальная сборка) (64 бит)
+      Windows 10
+  steps-to-reproduce: >
+      1. Открываем страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Слева на панели фильтра ставим галочку напротив Apple
+      3. В окне поиска вводим Samsung
+  expected-result: |
+      Данных товаров не обнаружено
+  actual-result: >
+      Сайт выдал много товаров не относящихся к данным параметрам поиска и данной категории   
+
+- summary: |
+      Сайт не корректно выдает товары
+  environment: |
+      Google Chrome 114.0.5735.199 (Официальная сборка) (64 бит)
+      Windows 10
+  steps-to-reproduce: >
+      1. Открываем страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Слева на панели фильтра ставим убираем галочку напротив В наличии
+  expected-result: |
+      Товаров стало больше так как добавились товары которых нет в наличии
+  actual-result: |
+      Количество товаров уменьшилось
+      
+- summary: |
+      Сайт не корректно выдает товары
+  environment: |
+      Google Chrome 114.0.5735.199 (Официальная сборка) (64 бит)
+      Windows 10
+  steps-to-reproduce: >
+      1. Открываем страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Слева на панели фильтра ставим галочку напротив В наличии
+  expected-result: |
+      Товаров стало меньше так как исчезли товары которых нет в наличии
+  actual-result: |
+      Количество товаров увеличилось
+
+- summary: |
+      Разъехалась верстка
+  environment: |
+      Google Chrome 114.0.5735.199 (Официальная сборка) (64 бит)
+      Windows 10
+  steps-to-reproduce: >
+      1. Открываем страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. открываем DevTools
+      3. открываем в DevTools device toolbars
+      4. выбираем Iphone SE
+  expected-result: |
+      Надписи и картинки не выходят за рамки полей
+  actual-result: |
+      Исчезли панели фильтров Brand сайт отображается не полностью
