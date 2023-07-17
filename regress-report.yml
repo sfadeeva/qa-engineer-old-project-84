@@ -94,7 +94,7 @@ test-cases:
 
 - summary: |
     Тест на совместимость с FireFox
-    status: pass
+  status: pass
 
 - summary: |
     Тест на совместимость с Chrome
