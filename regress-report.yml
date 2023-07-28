@@ -13,7 +13,7 @@ test-cases:
   status: pass
 
 - summary: |
-    Возможность искать товары по категории 2
+    Возможность искать товары пов категории 2
   status: fail
   
 - summary: |
