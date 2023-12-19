@@ -111,6 +111,8 @@
     Пользователь должен иметь возможность проссматривать товары 
   prerequisites: |
     Пользователь открыл браузер Google Chrome
+  test-data: |
+    empty   
   steps: 
    - Пользователь переходит на страницу
     https://hexlet-products-store.vercel.app
